@@ -1,0 +1,9 @@
+# ChatFlow Automator - Example Prompts List
+# Lines starting with # are comments and will be ignored
+# Each non-empty line becomes a separate task
+
+Hello! How are you today?
+Please explain what machine learning is in simple terms.
+What are the main differences between Python and JavaScript?
+Can you write a simple "Hello World" program in Python?
+Thank you for your help!

@@ -1,0 +1,13 @@
+"""Entry point for python -m chatflow."""
+
+import sys
+
+
+def main() -> int:
+    """Main entry point."""
+    from chatflow.app import main as app_main
+    return app_main()
+
+
+if __name__ == "__main__":
+    sys.exit(main())

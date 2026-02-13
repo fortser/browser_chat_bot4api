@@ -1,0 +1,38 @@
+{
+  "version": "1.0",
+  "sequence": {
+    "id": "example_seq_001",
+    "name": "Simple Test Workflow",
+    "description": "A simple example workflow for testing",
+    "default_interval": 15,
+    "cards": [
+      {
+        "id": "card_001",
+        "name": "Greeting",
+        "prompt": "Hello! I'm testing the ChatFlow Automator. Please respond with a brief greeting.",
+        "wait_before": 0,
+        "wait_after": 10,
+        "timeout": 60,
+        "enabled": true
+      },
+      {
+        "id": "card_002",
+        "name": "Simple Question",
+        "prompt": "What is 2 + 2?",
+        "wait_before": 0,
+        "wait_after": 10,
+        "timeout": 60,
+        "enabled": true
+      },
+      {
+        "id": "card_003",
+        "name": "Farewell",
+        "prompt": "Thank you for your responses. Goodbye!",
+        "wait_before": 0,
+        "wait_after": 5,
+        "timeout": 60,
+        "enabled": true
+      }
+    ]
+  }
+}

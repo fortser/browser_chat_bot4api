@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "connection": {
+    "url": "https://chat.example.com",
+    "cookies_file": "data/cookies/session.json",
+    "adapter_name": "generic"
+  },
+  "browser": {
+    "headless": false,
+    "hide_automation": true,
+    "user_data_dir": null,
+    "user_agent": null,
+    "viewport_width": 1280,
+    "viewport_height": 800,
+    "extensions": []
+  },
+  "proxy": {
+    "enabled": false,
+    "type": "socks5",
+    "host": "127.0.0.1",
+    "port": 1080,
+    "username": null,
+    "password": null
+  },
+  "adapter_settings": {
+    "generic": {
+      "selectors": {
+        "input_field": "textarea",
+        "send_button": "button[type='submit']",
+        "stop_button": "button[aria-label='Stop']",
+        "response_container": "[data-message-author-role='assistant']"
+      }
+    }
+  },
+  "defaults": {
+    "interval_after": 15,
+    "timeout": 120
+  }
+}

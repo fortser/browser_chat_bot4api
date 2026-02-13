@@ -1,0 +1,108 @@
+[
+  {
+    "___TEMPLATE_NOTE___": "This is a TEMPLATE showing cookie structure. Real cookies.json files are NOT committed to Git.",
+    "___WARNING___": "⚠️ SENSITIVE DATA: Cookies contain session information and authentication tokens. Never commit real cookies!",
+    "___HOW_TO_GET___": {
+      "step_1": "Open website in browser (Chrome, Edge, Firefox, Safari)",
+      "step_2": "Press F12 to open DevTools",
+      "step_3": "Go to 'Application' (or 'Storage' in Firefox) tab",
+      "step_4": "Expand 'Cookies' on the left",
+      "step_5": "Select the domain for your website",
+      "step_6": "Right-click and 'Copy all as cURL'",
+      "step_7": "Or use a browser extension like 'EditThisCookie' or 'WebCookies'",
+      "step_8": "Format extracted cookies as JSON array like this template"
+    },
+    "___TOOLS___": {
+      "option_1": "Browser DevTools (F12 > Application > Cookies)",
+      "option_2": "Browser Extensions: EditThisCookie, WebCookies",
+      "option_3": "Browser Console: javascript - copy(JSON.stringify(document.cookie))",
+      "option_4": "Playwright Inspector: playwright inspector http://example.com"
+    }
+  },
+
+  {
+    "___EXAMPLE_COOKIE_1___": "Session token (common in most websites)",
+    "name": "session_id",
+    "___name_explanation___": "Cookie name/key - identifies what this cookie stores",
+    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "___value_explanation___": "⚠️ SENSITIVE: Cookie value (could be JWT token, session ID, etc.) - NEVER commit real values!",
+    "domain": ".example.com",
+    "___domain_explanation___": "Domain this cookie applies to - include the dot prefix for subdomains (.example.com applies to all.example.com)",
+    "path": "/",
+    "___path_explanation___": "Cookie scope - '/' means accessible on entire domain, '/api/' means only under /api/",
+    "expires": 1735689600,
+    "___expires_explanation___": "Expiration time as Unix timestamp (seconds since Jan 1, 1970). Use online converters to verify dates.",
+    "httpOnly": true,
+    "___httpOnly_explanation___": "true = cookie not accessible from JavaScript (more secure), false = accessible from JS",
+    "secure": true,
+    "___secure_explanation___": "true = cookie only sent over HTTPS, false = sent over HTTP too",
+    "sameSite": "Strict",
+    "___sameSite_explanation___": "Options: 'Strict', 'Lax', 'None'. Controls cookie sending in cross-site requests. 'Strict' is most secure."
+  },
+
+  {
+    "___EXAMPLE_COOKIE_2___": "Authentication token (often httpOnly=true for security)",
+    "name": "auth_token",
+    "value": "bearer_token_value_here_abc123def456...",
+    "domain": ".api.example.com",
+    "path": "/api",
+    "expires": 1740000000,
+    "httpOnly": true,
+    "secure": true,
+    "sameSite": "Lax"
+  },
+
+  {
+    "___EXAMPLE_COOKIE_3___": "Tracking/Analytics cookie (httpOnly=false, accessible from JS)",
+    "name": "_ga",
+    "value": "GA1.2.1234567890.1234567890",
+    "domain": ".example.com",
+    "path": "/",
+    "expires": 1767225600,
+    "httpOnly": false,
+    "secure": false,
+    "sameSite": "None"
+  },
+
+  {
+    "___REAL_WORLD_EXAMPLES___": "Cookies from actual chat platforms",
+    "___CHATGPT___": {
+      "note": "These are example fields that ChatGPT might use",
+      "important_fields": ["__Secure-next-auth.session-token", "__Secure-next-auth.csrf-token", "prov", "_U"],
+      "location": "https://chat.openai.com"
+    },
+    "___CLAUDE___": {
+      "note": "These are example fields that Claude might use",
+      "important_fields": ["sessionKey", "token", "auth_session", "preferences"],
+      "location": "https://claude.ai"
+    },
+    "___GENSPARK___": {
+      "note": "These are example fields that GenSpark might use",
+      "important_fields": ["genspark_session", "auth_token", "user_session"],
+      "location": "https://genspark.ai"
+    }
+  },
+
+  {
+    "___IMPORTANT_NOTES___": {
+      "note_1": "Always use the EXACT values from your browser - don't modify them",
+      "note_2": "If expires date passed, cookies are invalid - get fresh ones",
+      "note_3": "Some cookies are for tracking only and might not be needed - try removing optional ones",
+      "note_4": "httpOnly cookies cannot be accessed via DevTools console - get them from Network tab",
+      "note_5": "Session cookies (expires=null) expire when browser closes",
+      "note_6": "Store cookies in data/cookies/ folder - add to .gitignore, never commit real cookies!",
+      "note_7": "Different adapters might need different cookies from same website",
+      "note_8": "Refresh cookies periodically if sessions expire frequently"
+    }
+  },
+
+  {
+    "___USAGE_IN_CODE___": "How to use cookies in ChatFlow Automator",
+    "example_config": {
+      "cookies_file": "data/cookies/chatgpt_cookies.json",
+      "description": "Point config.json to your cookies file"
+    },
+    "example_code": "from src.chatflow.browser.cookies import CookieManager; manager = CookieManager(); cookies = manager.load_cookies('data/cookies/chatgpt_cookies.json')",
+    "description": "Load cookies programmatically"
+  }
+]

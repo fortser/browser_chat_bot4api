@@ -1,0 +1,95 @@
+# ChatFlow Automator - Root .gitignore
+
+# Project root - generated documentation (these are useful to commit!)
+# Keep analysis files but ignore backups
+*.analysis.bak
+*.tmp
+
+# IDE and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+.project
+.pydevproject
+
+# OS files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+.Trashes
+ehthumbs.db
+desktop.ini
+._*
+.TemporaryItems
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.egg-info/
+dist/
+build/
+
+# Temporary files
+*.bak
+*.log
+*.tmp
+
+# Archive backups
+*.rar~
+*.zip~
+
+# Environment
+.env
+.env.local
+.venv/
+
+# venv should NOT be here - should be inside chatflow-automator/
+# but keep rule just in case
+venv/
+ENV/
+env/
+
+# Build artifacts
+*.whl
+*.egg
+
+# Test coverage
+.coverage
+.coverage.*
+htmlcov/
+
+# LLM Analysis (for backup analysis files)
+.llm_*
+*.llm_analysis~
+
+# Sensitive data at project root (if accidentally placed here)
+config.json
+config.*.json
+secrets.json
+.env
+.env.local
+credentials.json
+auth.json
+*.apikey
+*.token
+*.secret
+passwords.json
+tokens.json
+
+# Cookie and session data
+cookies.json
+sessions.json
+*.session
+*.cookies
+**/*cookies*.json
+
+# Database files that might contain sensitive data
+*.db
+*.sqlite
+*.sqlite3

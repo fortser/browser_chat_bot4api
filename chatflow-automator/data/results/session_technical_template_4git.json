@@ -1,0 +1,255 @@
+{
+  "___TEMPLATE_INFO___": {
+    "description": "This is a TEMPLATE showing technical metadata from execution",
+    "purpose": "Performance and system information collected during workflow execution",
+    "file_naming": "session_YYYYMMDD_HHMMSS_technical.json",
+    "generated_by": "ChatFlow Automator core engine",
+    "git_status": "Real files are NOT committed to Git",
+    "related_file": "Paired with session_YYYYMMDD_HHMMSS.json (main results)"
+  },
+
+  "session_id": "session_20260213_103045",
+  "___session_id___": "Matches the main session file this metadata belongs to",
+
+  "execution_start": "2026-02-13T10:30:45.123Z",
+  "___execution_start___": "When execution started",
+
+  "execution_end": "2026-02-13T10:33:15.789Z",
+  "___execution_end___": "When execution ended",
+
+  "total_duration_seconds": 150.666,
+  "___total_duration___": "Total wall-clock time for entire workflow",
+
+  "browser": {
+    "type": "chromium",
+    "___type___": "Browser type: chromium, firefox, webkit",
+    "version": "120.0.6099.129",
+    "___version___": "Browser version string",
+    "headless": false,
+    "___headless___": "true = invisible, false = visible on screen",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "___user_agent___": "Browser User-Agent string sent to websites",
+    "viewport_width": 1280,
+    "viewport_height": 800,
+    "___viewport___": "Window dimensions at execution time"
+  },
+
+  "network": {
+    "proxy_enabled": false,
+    "___proxy_enabled___": "true = proxy was used, false = direct connection",
+    "proxy_type": null,
+    "___proxy_type___": "http, https, or socks5 if proxy_enabled=true",
+    "network_latency_ms": 45,
+    "___network_latency___": "Average network latency in milliseconds",
+    "connection_type": "WiFi",
+    "___connection_type___": "WiFi, Ethernet, Mobile, etc.",
+    "dns_lookup_time_ms": 23,
+    "___dns_lookup___": "Time to resolve DNS (first task only)"
+  },
+
+  "system": {
+    "platform": "Windows-10-19045",
+    "___platform___": "Operating system: Windows, Linux, Darwin (macOS)",
+    "architecture": "x86_64",
+    "___architecture___": "CPU architecture",
+    "python_version": "3.11.0",
+    "___python___": "Python version used",
+    "python_implementation": "CPython",
+    "___implementation___": "Python interpreter: CPython, PyPy, Jython",
+    "cpu_count": 8,
+    "___cpu_count___": "Number of CPU cores available"
+  },
+
+  "resource_usage": {
+    "memory": {
+      "peak_mb": 245.6,
+      "___peak_mb___": "Maximum memory used during execution",
+      "average_mb": 187.3,
+      "___average_mb___": "Average memory usage",
+      "process_memory_mb": 156.2,
+      "___process___": "Memory used by Python process"
+    },
+
+    "cpu": {
+      "average_percent": 12.5,
+      "___average_percent___": "Average CPU usage percentage (0-100)",
+      "peak_percent": 34.7,
+      "___peak_percent___": "Maximum CPU usage percentage",
+      "user_time_seconds": 28.3,
+      "___user_time___": "Time spent in user code",
+      "system_time_seconds": 5.1,
+      "___system_time___": "Time spent in system calls"
+    },
+
+    "disk": {
+      "read_mb": 2.3,
+      "___read_mb___": "Megabytes read from disk",
+      "write_mb": 1.7,
+      "___write_mb___": "Megabytes written to disk"
+    }
+  },
+
+  "performance": {
+    "first_byte_time_ms": 342,
+    "___first_byte___": "Time until first response byte received",
+    "page_load_time_ms": 1234,
+    "___page_load___": "Time for website to fully load",
+    "interaction_time_ms": 2156,
+    "___interaction___": "Time spent on user interactions (clicks, typing)",
+    "response_wait_time_ms": 3500,
+    "___response_wait___": "Average time waiting for AI response"
+  },
+
+  "tasks_statistics": {
+    "total_tasks": 5,
+    "successful_tasks": 5,
+    "failed_tasks": 0,
+    "timeout_tasks": 0,
+    "average_task_duration_ms": 4200,
+    "___avg_task___": "Average time per task",
+    "median_task_duration_ms": 3800,
+    "___median___": "Median task duration",
+    "fastest_task_ms": 1500,
+    "___fastest___": "Quickest task",
+    "slowest_task_ms": 8900,
+    "___slowest___": "Longest task"
+  },
+
+  "api_calls": {
+    "total_api_calls": 5,
+    "___total___": "Total number of AI API calls made",
+    "successful_calls": 5,
+    "failed_calls": 0,
+    "total_input_tokens": 847,
+    "___input___": "Total tokens in all prompts sent",
+    "total_output_tokens": 1256,
+    "___output___": "Total tokens in all responses received",
+    "total_tokens": 2103,
+    "___total___": "sum(input + output)",
+    "estimated_api_cost_usd": 0.08,
+    "___estimated_cost___": "Rough estimation based on model pricing"
+  },
+
+  "browser_interactions": {
+    "total_clicks": 5,
+    "___clicks___": "Number of click operations",
+    "total_keystrokes": 487,
+    "___keystrokes___": "Characters typed into fields",
+    "total_page_loads": 1,
+    "___page_loads___": "Number of page navigations",
+    "element_searches": 47,
+    "___element_searches___": "Number of DOM element lookups",
+    "screenshot_count": 0,
+    "___screenshots___": "Number of screenshots taken for debugging"
+  },
+
+  "error_statistics": {
+    "total_errors": 0,
+    "___total___": "Total error count",
+    "critical_errors": 0,
+    "___critical___": "Errors that stopped execution",
+    "warnings": 1,
+    "___warnings___": "Non-fatal warnings during execution",
+    "retry_count": 0,
+    "___retries___": "Total retries performed"
+  },
+
+  "environment_info": {
+    "playwright_version": "1.40.0",
+    "___playwright___": "Playwright library version",
+    "pyqt_version": "6.6.0",
+    "___pyqt___": "PyQt6 version (if using GUI)",
+    "pydantic_version": "2.5.0",
+    "___pydantic___": "Pydantic validation library version",
+    "dependencies_loaded": 12,
+    "___dependencies___": "Number of successfully loaded dependencies"
+  },
+
+  "execution_timeline": {
+    "initialization_ms": 2345,
+    "___init___": "Time to initialize browser and adapters",
+    "page_load_ms": 1234,
+    "___load___": "Time to load target website",
+    "tasks_execution_ms": 140256,
+    "___tasks___": "Time spent executing all tasks",
+    "results_save_ms": 523,
+    "___save___": "Time to save results to disk",
+    "cleanup_ms": 312,
+    "___cleanup___": "Time to close browser and cleanup"
+  },
+
+  "adapters_used": [
+    {
+      "name": "chatgpt",
+      "tasks_count": 3,
+      "success_rate": 1.0,
+      "average_response_time_ms": 2500,
+      "total_tokens": 1200
+    },
+    {
+      "name": "claude",
+      "tasks_count": 1,
+      "success_rate": 1.0,
+      "average_response_time_ms": 3200,
+      "total_tokens": 350
+    },
+    {
+      "name": "genspark",
+      "tasks_count": 1,
+      "success_rate": 1.0,
+      "average_response_time_ms": 4100,
+      "total_tokens": 553
+    }
+  ],
+
+  "quality_metrics": {
+    "success_rate_percent": 100,
+    "___success___": "Percentage of tasks that succeeded",
+    "average_response_quality": 8.7,
+    "___quality___": "Subjective quality score (1-10, if available)",
+    "consistency_score": 0.94,
+    "___consistency___": "How consistent responses are (0-1)",
+    "latency_score": 0.78,
+    "___latency___": "Performance score (0-1, higher=faster)"
+  },
+
+  "alerts_and_warnings": [
+    {
+      "level": "WARNING",
+      "task_id": "task_003",
+      "message": "Response took longer than expected (6.6s > 5.0s threshold)",
+      "impact": "minor"
+    }
+  ],
+
+  "optimization_suggestions": [
+    {
+      "issue": "High memory usage detected",
+      "suggestion": "Consider using headless mode to reduce memory footprint",
+      "potential_savings": "~50MB RAM"
+    },
+    {
+      "issue": "GenSpark adapter is slowest",
+      "suggestion": "Use GenSpark only for research tasks, not simple queries",
+      "potential_savings": "~2 seconds per task"
+    }
+  ],
+
+  "___HOW_TO_USE_THIS_DATA___": {
+    "performance_analysis": "Identify slow tasks using tasks_statistics section",
+    "resource_monitoring": "Track memory and CPU from resource_usage section",
+    "api_cost_tracking": "Estimate costs using api_calls.estimated_api_cost_usd",
+    "debugging": "Check error_statistics and alerts_and_warnings for issues",
+    "optimization": "Read optimization_suggestions for improvements",
+    "comparison": "Compare multiple sessions to identify trends"
+  },
+
+  "___IMPORTANT_NOTES___": {
+    "note_1": "All timings are in milliseconds or seconds as indicated",
+    "note_2": "Token counts are approximate based on tokenizer used",
+    "note_3": "Resource usage depends on system and other running processes",
+    "note_4": "API costs are estimated only - check actual provider billing",
+    "note_5": "Some metrics may be 0 if feature is not enabled",
+    "note_6": "Timestamps are UTC (Z suffix in ISO 8601 format)"
+  }
+}

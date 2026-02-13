@@ -1,0 +1,248 @@
+{
+  "___TEMPLATE_INFO___": {
+    "description": "This is a TEMPLATE for ChatFlow workflow files",
+    "purpose": "Shows how to structure tasks and workflows for automation",
+    "usage": "Copy this to workflow_XXX.json and fill with YOUR tasks",
+    "location": "data/tasks/ folder",
+    "git_status": "Real workflow files are NOT committed, use this template for documentation"
+  },
+
+  "___HOW_TO_USE_THIS_TEMPLATE___": {
+    "step_1": "Copy this file as: workflow_my_workflow.json",
+    "step_2": "Edit the JSON to add your own tasks",
+    "step_3": "Add each task with: task_id, prompt, adapter, variables",
+    "step_4": "Use {variable_name} for substitution in prompts",
+    "step_5": "Load in GUI or CLI to execute",
+    "step_6": "Results will be saved to data/results/session_TIMESTAMP.json"
+  },
+
+  "workflow_id": "workflow_001",
+  "___workflow_id___": "Unique identifier for this workflow - use for organizational purposes",
+
+  "name": "Customer Support Analysis",
+  "___name___": "Human-readable name of this workflow",
+
+  "description": "Analyzes customer feedback using different AI models for comprehensive insights",
+  "___description___": "Long description of what this workflow does",
+
+  "created_at": "2026-02-13T10:30:00Z",
+  "___created_at___": "ISO 8601 timestamp when workflow was created",
+
+  "tags": ["customer-service", "analysis", "multi-model"],
+  "___tags___": "Optional array of tags for organizing workflows",
+
+  "version": "1.0",
+  "___version___": "Workflow version for tracking changes",
+
+  "variables": {
+    "___SECTION___": "Global variables that can be used in prompts with {variable_name} syntax",
+    "feedback": {
+      "description": "Customer feedback text to analyze",
+      "type": "string",
+      "required": true,
+      "example": "Great product but documentation needs improvement"
+    },
+    "language": {
+      "description": "Language for analysis",
+      "type": "string",
+      "required": false,
+      "default": "English",
+      "example": "English"
+    },
+    "max_tokens": {
+      "description": "Maximum response length",
+      "type": "number",
+      "required": false,
+      "default": 500,
+      "example": "500"
+    }
+  },
+
+  "tasks": [
+    {
+      "___TASK_1___": "Simple task with basic fields",
+      "id": "task_001",
+      "___id___": "Unique task identifier within this workflow",
+
+      "name": "Summarize Feedback",
+      "___name___": "Human-readable task name",
+
+      "prompt": "Please summarize the following customer feedback in 2-3 sentences: {feedback}",
+      "___prompt___": "The text to send to AI. Use {variable_name} for variable substitution",
+
+      "adapter": "chatgpt",
+      "___adapter___": "Which AI adapter to use: chatgpt, claude, genspark, qwen, or generic",
+
+      "timeout": 120,
+      "___timeout___": "Max seconds to wait for response (default 120)",
+
+      "retries": 2,
+      "___retries___": "Number of retry attempts if task fails (default 2)",
+
+      "order": 1,
+      "___order___": "Execution order (tasks execute in ascending order of this field)"
+    },
+
+    {
+      "___TASK_2___": "Task with dependencies (waits for task_001 to complete first)",
+      "id": "task_002",
+      "name": "Classify Sentiment",
+      "prompt": "Based on this feedback, classify the sentiment as positive, negative, or neutral: {feedback}",
+      "adapter": "chatgpt",
+      "order": 2,
+      "depends_on": ["task_001"],
+      "___depends_on___": "Array of task IDs that must complete before this task runs",
+      "pass_previous": false,
+      "___pass_previous___": "true = pass previous task output as context, false = use only current prompt"
+    },
+
+    {
+      "___TASK_3___": "Task using Claude adapter instead of ChatGPT",
+      "id": "task_003",
+      "name": "Extract Keywords",
+      "prompt": "List the top 5 keywords from this feedback, categorized as positive/negative: {feedback}",
+      "adapter": "claude",
+      "___adapter_change___": "This task switches to Claude model for comparison",
+      "order": 3,
+      "depends_on": ["task_001"],
+      "timeout": 90
+    },
+
+    {
+      "___TASK_4___": "Task with multiple variables",
+      "id": "task_004",
+      "name": "Detailed Analysis",
+      "prompt": "Provide detailed analysis in {language} of this feedback: {feedback}\nKeep response under {max_tokens} tokens.",
+      "___multiple_variables___": "Uses {feedback}, {language}, and {max_tokens}",
+      "adapter": "genspark",
+      "order": 4,
+      "depends_on": ["task_002", "task_003"],
+      "___multiple_dependencies___": "Waits for both task_002 AND task_003 to complete",
+      "pass_previous": true,
+      "___pass_previous_true___": "Will include outputs from task_002 and task_003 as context"
+    },
+
+    {
+      "___TASK_5___": "Task using GenSpark for search/research",
+      "id": "task_005",
+      "name": "Similar Issues Research",
+      "prompt": "Research similar customer issues: {feedback}",
+      "adapter": "genspark",
+      "___genspark_note___": "GenSpark is good for research tasks (includes web search)",
+      "order": 5,
+      "depends_on": ["task_001"]
+    },
+
+    {
+      "___TASK_6___": "Task using generic adapter for unknown site",
+      "id": "task_006",
+      "name": "Summary in Generic Chat",
+      "prompt": "Summarize: {feedback}",
+      "adapter": "generic",
+      "___generic___": "Use generic adapter if targeting unknown/custom chat interfaces",
+      "order": 6,
+      "depends_on": ["task_004"]
+    }
+  ],
+
+  "execution_config": {
+    "___SECTION___": "Global execution settings",
+    "parallel_tasks": false,
+    "___parallel___": "true = run tasks in parallel (be careful with order/dependencies), false = sequential",
+    "interval_between_tasks": 15,
+    "___interval___": "Seconds to wait between tasks (avoid rate limiting)",
+    "stop_on_error": false,
+    "___stop_on_error___": "true = stop workflow if any task fails, false = continue with remaining tasks",
+    "save_intermediate": true,
+    "___save_intermediate___": "true = save results after each task, false = save only at end"
+  },
+
+  "___EXAMPLES___": {
+    "example_1_simple": {
+      "description": "Simple 2-task workflow",
+      "sample_json": {
+        "workflow_id": "simple_test",
+        "name": "Simple Test",
+        "tasks": [
+          {
+            "id": "t1",
+            "prompt": "Say hello",
+            "adapter": "chatgpt",
+            "order": 1
+          },
+          {
+            "id": "t2",
+            "prompt": "Say goodbye",
+            "adapter": "chatgpt",
+            "order": 2,
+            "depends_on": ["t1"]
+          }
+        ]
+      }
+    },
+
+    "example_2_with_variables": {
+      "description": "Workflow using variables",
+      "sample_json": {
+        "workflow_id": "variables_test",
+        "name": "Variables Test",
+        "variables": {
+          "topic": {
+            "description": "Topic to discuss",
+            "type": "string",
+            "required": true
+          }
+        },
+        "tasks": [
+          {
+            "id": "t1",
+            "prompt": "Explain {topic} in simple terms",
+            "adapter": "claude",
+            "order": 1
+          }
+        ]
+      }
+    },
+
+    "example_3_multi_adapter": {
+      "description": "Uses different adapters for comparison",
+      "sample_json": {
+        "workflow_id": "multi_adapter",
+        "name": "Compare AI Models",
+        "tasks": [
+          {
+            "id": "chatgpt_response",
+            "prompt": "Explain quantum computing",
+            "adapter": "chatgpt",
+            "order": 1
+          },
+          {
+            "id": "claude_response",
+            "prompt": "Explain quantum computing",
+            "adapter": "claude",
+            "order": 2
+          },
+          {
+            "id": "genspark_response",
+            "prompt": "Research quantum computing",
+            "adapter": "genspark",
+            "order": 3
+          }
+        ]
+      }
+    }
+  },
+
+  "___IMPORTANT_NOTES___": {
+    "note_1": "Task IDs must be unique within the workflow",
+    "note_2": "Order field determines execution sequence",
+    "note_3": "Variables use {name} syntax - they're case-sensitive",
+    "note_4": "depends_on creates sequential dependencies",
+    "note_5": "Adapters must match those configured in config.json",
+    "note_6": "Timeout should be longer for complex queries",
+    "note_7": "Retries help handle temporary network issues",
+    "note_8": "interval_between_tasks avoids hitting rate limits",
+    "note_9": "Real workflow files go in data/tasks/ folder",
+    "note_10": "Results saved with timestamp: session_YYYYMMDD_HHMMSS.json"
+  }
+}

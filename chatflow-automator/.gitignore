@@ -1,0 +1,232 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Project specific
+# Data files - keep structure but ignore content
+data/results/
+!data/results/.gitkeep
+!data/results/*_template_4git.json
+!data/results/*_4git.*
+data/results/*.json
+data/results/*.md
+data/results/*.txt
+data/results/*_prompts.txt
+data/results/*_technical.json
+data/results/*_errors.json
+
+data/logs/
+!data/logs/.gitkeep
+!data/logs/example_4git.log
+data/logs/*.log
+data/logs/*.txt
+
+data/cookies/
+!data/cookies/.gitkeep
+!data/cookies/*_template_4git.json
+!data/cookies/*_4git.json
+data/cookies/*.json
+data/cookies/*.sqlite
+data/cookies/*.db
+
+data/tasks/
+!data/tasks/.gitkeep
+!data/tasks/*_template_4git.json
+!data/tasks/*_4git.json
+data/tasks/*.json
+
+!data/config_4git.json
+data/config.json
+data/config*.json
+!data/config_4git.json
+data/*.json
+*.log
+*.tmp
+
+# Browser data and profiles - SENSITIVE
+browser_profile/
+browser_data/
+user_data/
+.browser_cache/
+*.userdata
+**/profiles/
+**/Default/
+**/Cache/
+**/Code Cache/
+**/Cookies
+**/History
+**/Bookmarks
+**/LoginData
+**/Web Data
+
+# Playwright browser data
+browsers/
+webkit_data/
+chromium_data/
+firefox_data/
+
+# Outdated and backup copies - EXPLICITLY DEPRECATED
+card_editor_parser_old_copies/
+**/main_window — копия.py
+**/execution_tab — копия.py
+**/*_copy.py
+**/*— копия*.py
+**/*— копия*.py
+
+# Windows specific
+Thumbs.db
+.Trashes
+ehthumbs.db
+desktop.ini
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# LLM reports and analysis
+src/.llm_reports_*/
+*.llm_analysis
+.llm_cache/
+
+# Archive files (backups)
+*.rar
+*.zip
+*.7z
+*.tar.gz
+
+# Temporary editor files
+*.bak
+*.backup
+*.orig
+*.patch
+*~.bak
+
+# IDE workspace files
+*.sublime-workspace
+*.sublime-project
+.project
+.pydevproject
+.settings/
+*.code-workspace
+
+# Testing & coverage
+.hypothesis/
+htmlcov/
+.coverage.db
+.coveragerc
+
+# Credentials and sensitive data (if accidentally committed)
+credentials.json
+secrets.json
+.env.local
+.env.*.local
+auth.json
+config.local.json
+config.private.json
+settings.local.json
+settings.private.json
+
+# API keys and tokens
+.api_keys
+*.apikey
+*.token
+*.secret
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Session and user data
+*.session
+*.session.json
+.session/
+sessions/
+
+# Passwords and authentication (any file containing these patterns)
+*password*.json
+*token*.json
+*api*.key
+*secret*.json
+*credential*.json
+
+# SQLite databases (browser data)
+*.sqlite
+*.sqlite3
+cookies.sqlite
+*.db
+
+# Cookie extractor temporary files
+cookie_extractor/cookies_*/
+cookie_extractor/genspark cookies_*/
+
+# Windows batch temporary
+*.bat~
+
+# macOS junk
+._*
+.TemporaryItems

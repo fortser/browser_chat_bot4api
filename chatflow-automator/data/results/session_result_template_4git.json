@@ -1,0 +1,227 @@
+{
+  "___TEMPLATE_INFO___": {
+    "description": "This is a TEMPLATE showing the structure of execution results",
+    "purpose": "Shows what data is generated after running a workflow",
+    "note": "Real session_*.json files are NOT committed to Git (see .gitignore)",
+    "location": "data/results/ folder",
+    "naming": "Files are named: session_YYYYMMDD_HHMMSS.json"
+  },
+
+  "___IMPORTANT___": "⚠️ SENSITIVE DATA: Session results may contain user prompts/queries. Never commit real session files!",
+
+  "session_id": "session_20260213_103045",
+  "___session_id___": "Unique session identifier - timestamp format: YYYYMMDD_HHMMSS",
+
+  "workflow_id": "workflow_001",
+  "___workflow_id___": "ID of the workflow that was executed",
+
+  "workflow_name": "Customer Support Analysis",
+  "___workflow_name___": "Human-readable name of the workflow",
+
+  "start_time": "2026-02-13T10:30:45.123Z",
+  "___start_time___": "ISO 8601 timestamp when execution started",
+
+  "end_time": "2026-02-13T10:33:15.789Z",
+  "___end_time___": "ISO 8601 timestamp when execution completed",
+
+  "duration_seconds": 150.666,
+  "___duration___": "Total execution time in seconds",
+
+  "status": "completed",
+  "___status___": "Options: 'completed', 'failed', 'stopped', 'partial'",
+
+  "total_tasks": 5,
+  "___total_tasks___": "Total number of tasks in workflow",
+
+  "completed_tasks": 5,
+  "___completed_tasks___": "Number of successfully completed tasks",
+
+  "failed_tasks": 0,
+  "___failed_tasks___": "Number of failed tasks",
+
+  "success_rate": 1.0,
+  "___success_rate___": "Percentage of successful tasks (0.0 to 1.0)",
+
+  "browser_config": {
+    "adapter": "chatgpt",
+    "___adapter___": "Primary adapter used (can change per task)",
+    "headless": false,
+    "___headless___": "true = invisible browser, false = visible",
+    "url": "https://chat.openai.com",
+    "___url___": "Primary website that was accessed"
+  },
+
+  "tasks_results": [
+    {
+      "___TASK_1___": "First task result",
+      "task_id": "task_001",
+      "___task_id___": "Unique task identifier",
+
+      "task_name": "Summarize Feedback",
+      "___task_name___": "Human-readable task name",
+
+      "order": 1,
+      "___order___": "Execution order (1-based)",
+
+      "adapter": "chatgpt",
+      "___adapter___": "AI adapter that executed this task",
+
+      "status": "success",
+      "___status___": "Options: 'success', 'failed', 'timeout', 'error'",
+
+      "prompt": "Please summarize the following customer feedback in 2-3 sentences: Great product but documentation needs improvement",
+      "___prompt___": "⚠️ SENSITIVE: The actual prompt sent to AI (may contain user queries)",
+
+      "response": "The customer appreciates the product quality but suggests improving documentation. Overall positive feedback with constructive criticism.",
+      "___response___": "⚠️ SENSITIVE: Response from AI (may contain user data in context)",
+
+      "response_tokens": 28,
+      "___response_tokens___": "Number of tokens in response (approximate)",
+
+      "start_time": "2026-02-13T10:31:07.345Z",
+      "___start_time___": "When this task started",
+
+      "end_time": "2026-02-13T10:31:09.567Z",
+      "___end_time___": "When this task completed",
+
+      "duration_seconds": 2.222,
+      "___duration___": "Time taken for this task",
+
+      "retries_used": 0,
+      "___retries___": "Number of retries before success (0 = first try)",
+
+      "depends_on": [],
+      "___depends_on___": "Task IDs this task depended on (waited for)"
+    },
+
+    {
+      "___TASK_2___": "Task with dependency",
+      "task_id": "task_002",
+      "task_name": "Classify Sentiment",
+      "order": 2,
+      "adapter": "chatgpt",
+      "status": "success",
+      "prompt": "Based on this feedback, classify the sentiment as positive, negative, or neutral: Great product but documentation needs improvement",
+      "response": "Sentiment Classification: POSITIVE (with minor negative aspect regarding documentation)",
+      "response_tokens": 15,
+      "start_time": "2026-02-13T10:31:23.890Z",
+      "end_time": "2026-02-13T10:31:26.012Z",
+      "duration_seconds": 2.122,
+      "retries_used": 0,
+      "depends_on": ["task_001"],
+      "___dependencies_note___": "This task waited for task_001 to complete first"
+    },
+
+    {
+      "___TASK_3___": "Task with warning (took longer than expected)",
+      "task_id": "task_003",
+      "task_name": "Extract Keywords",
+      "order": 3,
+      "adapter": "claude",
+      "status": "success",
+      "prompt": "List the top 5 keywords from this feedback, categorized as positive/negative: Great product but documentation needs improvement",
+      "response": "POSITIVE: product, quality, great\nNEGATIVE: documentation, improvement, needs",
+      "response_tokens": 22,
+      "start_time": "2026-02-13T10:31:41.234Z",
+      "end_time": "2026-02-13T10:31:47.890Z",
+      "duration_seconds": 6.656,
+      "___duration_warning___": "⚠️ WARNING: Took 6.6s - longer than expected",
+      "retries_used": 0,
+      "warnings": ["Response took longer than expected (6.6s > 5s threshold)"],
+      "___warnings___": "Array of warning messages",
+      "depends_on": ["task_001"]
+    },
+
+    {
+      "___TASK_4___": "Task that failed (with error details)",
+      "task_id": "task_004",
+      "task_name": "Detailed Analysis",
+      "order": 4,
+      "adapter": "genspark",
+      "status": "success",
+      "prompt": "Provide detailed analysis in English of this feedback: Great product but documentation needs improvement",
+      "response": "Comprehensive analysis showing product strengths and documentation improvement opportunities...",
+      "response_tokens": 156,
+      "start_time": "2026-02-13T10:31:56.123Z",
+      "end_time": "2026-02-13T10:32:05.678Z",
+      "duration_seconds": 9.555,
+      "retries_used": 0,
+      "depends_on": ["task_002", "task_003"],
+      "___multiple_deps___": "Waited for both task_002 AND task_003"
+    },
+
+    {
+      "___TASK_5_FAILED___": "Example of failed task (for reference)",
+      "task_id": "task_005_example_failed",
+      "task_name": "Optional Failed Task Example",
+      "order": 5,
+      "adapter": "qwen",
+      "status": "failed",
+      "___status_failed___": "This task failed",
+      "prompt": "Some prompt that failed",
+      "response": null,
+      "___response_null___": "No response because task failed",
+      "start_time": "2026-02-13T10:32:20.123Z",
+      "end_time": "2026-02-13T10:32:35.456Z",
+      "duration_seconds": 15.333,
+      "retries_used": 2,
+      "___retries_used___": "Tried 2 times before giving up",
+      "error": {
+        "type": "TimeoutError",
+        "___type___": "Error type/class name",
+        "message": "Browser timeout after 120 seconds waiting for response",
+        "___message___": "Human-readable error message",
+        "code": "TIMEOUT_120",
+        "___code___": "Error code for programming/filtering"
+      },
+      "depends_on": ["task_004"]
+    }
+  ],
+
+  "summary": {
+    "total_duration": "2m 30s",
+    "average_task_duration": 4.1,
+    "fastest_task": {
+      "task_id": "task_002",
+      "duration": 2.122
+    },
+    "slowest_task": {
+      "task_id": "task_004",
+      "duration": 9.555
+    },
+    "total_response_tokens": 221,
+    "completion_percentage": 100,
+    "warnings_count": 1,
+    "errors_count": 0
+  },
+
+  "metadata": {
+    "chatflow_version": "0.1.0",
+    "python_version": "3.11.0",
+    "platform": "Windows-10-19045",
+    "browser_type": "chromium",
+    "browser_version": "120.0.6099.129",
+    "playwright_version": "1.40.0"
+  },
+
+  "___HOW_TO_USE_THIS_DATA___": {
+    "analyze_results": "Check task_results array to see each task's prompt and response",
+    "find_errors": "Filter tasks with status='failed' to see what went wrong",
+    "measure_performance": "Use duration_seconds to identify slow tasks",
+    "monitor_warnings": "Check warnings array for issues that didn't cause failure",
+    "extract_responses": "Use tasks_results[].response to get AI responses",
+    "debug_issues": "Use metadata to understand execution environment",
+    "calculate_costs": "Use total_response_tokens to estimate API costs"
+  },
+
+  "___IMPORTANT_NOTES___": {
+    "note_1": "⚠️ Prompts may contain sensitive user queries - these files are excluded from Git!",
+    "note_2": "Response field contains AI output - may include user data in context",
+    "note_3": "Multiple task failures can result in status='partial'",
+    "note_4": "Timeout duration set in config.json determines max wait time",
+    "note_5": "Token counts are approximate - actual counts depend on tokenizer",
+    "note_6": "Timestamps are in ISO 8601 format (UTC)",
+    "note_7": "Session files are auto-deleted based on retention policy",
+    "note_8": "Real session files are exported to CSV, Markdown, and other formats"
+  }
+}

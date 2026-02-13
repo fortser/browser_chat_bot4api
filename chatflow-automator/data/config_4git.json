@@ -1,0 +1,133 @@
+{
+  "___NOTE___": "THIS IS A TEMPLATE FILE - COPY TO config.json AND FILL WITH YOUR DATA",
+  "___WARNING___": "config.json is IGNORED in .gitignore - This file contains sensitive data (passwords, proxy credentials)",
+  "___INSTRUCTIONS___": {
+    "step_1": "Copy this file to 'config.json' in the same folder",
+    "step_2": "Update the values below with YOUR specific parameters",
+    "step_3": "Replace SENSITIVE fields marked with [CHANGE_THIS] tags",
+    "step_4": "Do NOT commit config.json to Git - it's in .gitignore"
+  },
+
+  "version": "1.0",
+
+  "connection": {
+    "___SECTION___": "Primary chat connection settings",
+    "url": "https://chat.example.com",
+    "___url_note___": "The website URL you want to connect to (e.g., https://chat.openai.com, https://claude.ai, https://genspark.ai)",
+    "cookies_file": "data/cookies/example_cookies.json",
+    "___cookies_file_note___": "Path to JSON file with browser cookies - get these from DevTools (Application > Cookies)",
+    "adapter_name": "chatgpt",
+    "___adapter_name_note___": "Options: 'chatgpt', 'claude', 'genspark', 'qwen', 'generic' - determines which adapter to use"
+  },
+
+  "browser": {
+    "___SECTION___": "Browser automation settings (Playwright)",
+    "headless": false,
+    "___headless_note___": "true = invisible browser, false = visible browser (useful for debugging)",
+    "hide_automation": true,
+    "___hide_automation_note___": "true = hide browser automation signs, false = allow detection (hide_automation is recommended)",
+    "user_data_dir": null,
+    "___user_data_dir_note___": "Path to browser profile directory or null for temporary profile",
+    "user_agent": null,
+    "___user_agent_note___": "Custom User-Agent string or null for default. Example: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0'",
+    "viewport_width": 1280,
+    "viewport_height": 800,
+    "___viewport_note___": "Browser window size in pixels - recommended minimum 1280x800",
+    "extensions": [],
+    "___extensions_note___": "Array of Playwright extension paths - usually empty for standard usage"
+  },
+
+  "proxy": {
+    "___SECTION___": "Proxy settings - Leave as-is if not using proxy",
+    "enabled": false,
+    "___enabled_note___": "true to use proxy, false to connect directly",
+    "type": "http",
+    "___type_note___": "Options: 'http', 'https', 'socks5' - type of proxy protocol",
+    "host": "[CHANGE_THIS: your_proxy_host]",
+    "___host_note___": "⚠️ SENSITIVE: Proxy server address (IP or hostname) - Example: 159.255.38.108",
+    "port": 8080,
+    "___port_note___": "Proxy server port number - Example: 8080, 1080, 3128",
+    "username": "[CHANGE_THIS: your_proxy_username]",
+    "___username_note___": "⚠️ SENSITIVE: Proxy authentication username or null if no auth required",
+    "password": "[CHANGE_THIS: your_proxy_password]",
+    "___password_note___": "⚠️ SENSITIVE: Proxy authentication password or null if no auth required"
+  },
+
+  "adapter_settings": {
+    "___SECTION___": "Adapter-specific settings (custom selectors, parameters)",
+    "chatgpt": {
+      "___description___": "ChatGPT specific settings",
+      "selectors": {
+        "input_field": "textarea",
+        "send_button": "button[data-testid='send-button']",
+        "stop_button": "button[aria-label='Stop generating']",
+        "response_container": "[data-message-author-role='assistant']"
+      }
+    },
+    "claude": {
+      "___description___": "Claude (Claude.ai) specific settings",
+      "selectors": {
+        "input_field": "textarea",
+        "send_button": "button[aria-label='Send message']",
+        "stop_button": "button[aria-label='Stop']",
+        "response_container": "[data-test='response']"
+      }
+    },
+    "genspark": {
+      "___description___": "GenSpark AI specific settings",
+      "selectors": {
+        "input_field": "textarea",
+        "send_button": "button.send-button",
+        "stop_button": "button.stop-button",
+        "response_container": ".response-message"
+      }
+    },
+    "qwen": {
+      "___description___": "Qwen AI specific settings",
+      "selectors": {
+        "input_field": "textarea.input-area",
+        "send_button": "button.submit-btn",
+        "stop_button": "button.stop-btn",
+        "response_container": ".message-item.assistant"
+      }
+    },
+    "generic": {
+      "___description___": "Generic/Universal adapter - use for unknown sites",
+      "selectors": {
+        "input_field": "textarea",
+        "send_button": "button[type='submit']",
+        "stop_button": "button[aria-label='Stop']",
+        "response_container": "[data-message-author-role='assistant']"
+      }
+    }
+  },
+
+  "defaults": {
+    "___SECTION___": "Default values for task execution",
+    "interval_after": 15,
+    "___interval_after_note___": "Delay in seconds after each task completes (avoid rate limiting)",
+    "timeout": 120,
+    "___timeout_note___": "Maximum seconds to wait for response from AI (increases for long responses)",
+    "retries": 2,
+    "___retries_note___": "Number of retry attempts if a task fails"
+  },
+
+  "ui": {
+    "___SECTION___": "UI/GUI settings (saved automatically on window close)",
+    "window_width": 1000,
+    "window_height": 809,
+    "window_x": 100,
+    "window_y": 100,
+    "___ui_note___": "These are auto-saved when you close the GUI window - no need to edit manually"
+  },
+
+  "logging": {
+    "___SECTION___": "Logging configuration",
+    "level": "INFO",
+    "___level_note___": "Options: DEBUG, INFO, WARNING, ERROR, CRITICAL - more verbose = more logs",
+    "file": "data/logs/chatflow.log",
+    "___file_note___": "Path to main log file",
+    "max_size": 10485760,
+    "___max_size_note___": "Maximum log file size in bytes (10MB default) before rotation"
+  }
+}

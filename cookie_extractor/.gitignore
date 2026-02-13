@@ -1,0 +1,78 @@
+# Cookie Extractor - .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+.Trashes
+
+# Cookies and sensitive data - CRITICAL
+*.sqlite
+*.sqlite3
+*.db
+cookies.sqlite
+gpt cookies.sqlite
+genspark cookies.sqlite
+*cookies.sqlite
+*cookies.db
+*.cookies.sqlite
+*.cookies.db
+
+# Cookie extraction results and temporary data
+cookies_*/
+cookies_split/
+*_cookies/
+genspark cookies_*/
+**/*cookies/
+**/*cookie*/
+cookie_data/
+extracted_cookies/
+
+# Backup and temporary cookies
+cookies_export.json.bak
+cookies_export.json~
+*.cookies.bak
+*.cookies~
+*_cookies.json
+*_cookies_*.json
+cookies_export*.json
+cookies_backup*.json
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*~
+
+# Copies (deprecated)
+*— копия*.py
+*_copy.py
+*_old.py
+
+# Sensitive backups
+*.credentials
+*.token
+*.secret
+auth.json
+secrets.json

@@ -1,0 +1,319 @@
+{
+  "___TEMPLATE_INFO___": {
+    "description": "This is a TEMPLATE showing error and warning data structure",
+    "purpose": "Records all errors, warnings, and issues during workflow execution",
+    "file_naming": "session_YYYYMMDD_HHMMSS_errors.json",
+    "generated_by": "ChatFlow Automator - error handler",
+    "git_status": "Real files are NOT committed to Git (may contain system paths/info)",
+    "related_files": [
+      "session_YYYYMMDD_HHMMSS.json (main results)",
+      "session_YYYYMMDD_HHMMSS_technical.json (technical metrics)"
+    ]
+  },
+
+  "session_id": "session_20260213_103045",
+  "___session_id___": "Matches the session this error log belongs to",
+
+  "timestamp": "2026-02-13T10:33:16.123Z",
+  "___timestamp___": "When this error file was created",
+
+  "summary": {
+    "total_errors": 1,
+    "___total___": "Total number of errors that occurred",
+    "total_warnings": 2,
+    "___total___": "Total number of warnings (non-fatal issues)",
+    "error_rate": 0.2,
+    "___error_rate___": "Percentage of tasks that errored",
+    "execution_halted": false,
+    "___halted___": "true = errors stopped execution, false = continued despite errors"
+  },
+
+  "errors": [
+    {
+      "___ERROR_1___": "Example: Task timeout (failed to get response)",
+      "error_id": "ERR_001",
+      "___error_id___": "Unique error identifier for this error",
+
+      "task_id": "task_005_example",
+      "___task_id___": "Which task this error occurred in",
+
+      "timestamp": "2026-02-13T10:32:35.456Z",
+      "___timestamp___": "When this error occurred",
+
+      "type": "TimeoutError",
+      "___type___": "Error type/class: TimeoutError, BrowserError, ValidationError, etc.",
+
+      "message": "Browser timeout after 120 seconds waiting for AI response",
+      "___message___": "Human-readable error message",
+
+      "code": "TIMEOUT_120",
+      "___code___": "Error code for filtering and handling",
+
+      "severity": "high",
+      "___severity___": "low, medium, high, critical",
+
+      "details": {
+        "timeout_seconds": 120,
+        "___timeout___": "Timeout threshold that was exceeded",
+        "waited_seconds": 120,
+        "___waited___": "How long we actually waited",
+        "last_visible_text": "Processing your request...",
+        "___last_text___": "Last text visible on page before timeout",
+        "element_found": true,
+        "___element___": "Was the expected response element found?"
+      },
+
+      "recovery_action": "Task marked as failed, continuing with next task",
+      "___recovery___": "What was done to recover from this error",
+
+      "retry_count": 2,
+      "___retries___": "Number of retry attempts before giving up",
+
+      "suggestions": [
+        "Increase timeout value in config.json if queries are complex",
+        "Check network connection stability",
+        "Try with fewer concurrent tasks to reduce server load"
+      ]
+    },
+
+    {
+      "___ERROR_2_BROWSER___": "Example: Browser connection lost",
+      "error_id": "ERR_002",
+      "task_id": "task_003",
+      "timestamp": "2026-02-13T10:31:45.789Z",
+      "type": "BrowserError",
+      "message": "Connection to browser lost during page load",
+      "code": "BROWSER_DISCONNECTED",
+      "severity": "high",
+      "details": {
+        "browser_status": "disconnected",
+        "page_url": "https://claude.ai",
+        "attempted_action": "clicking send button"
+      },
+      "recovery_action": "Attempted to reconnect browser (successful)",
+      "retry_count": 1,
+      "suggestions": [
+        "Check if browser process is running",
+        "Ensure sufficient system resources (memory, CPU)",
+        "Check for network firewalls blocking connections"
+      ]
+    }
+  ],
+
+  "warnings": [
+    {
+      "___WARNING_1___": "Example: Slow response time",
+      "warning_id": "WARN_001",
+      "___warning_id___": "Unique warning identifier",
+
+      "task_id": "task_003",
+      "___task_id___": "Task this warning occurred in",
+
+      "timestamp": "2026-02-13T10:31:47.890Z",
+      "___timestamp___": "When warning occurred",
+
+      "type": "PerformanceWarning",
+      "___type___": "Warning type: PerformanceWarning, TimeoutWarning, etc.",
+
+      "message": "Response took longer than expected",
+      "___message___": "Description of the warning",
+
+      "severity": "low",
+      "___severity___": "low, medium, high",
+
+      "details": {
+        "expected_time_ms": 5000,
+        "___expected___": "Expected response time",
+        "actual_time_ms": 6600,
+        "___actual___": "Actual response time",
+        "excess_percent": 32,
+        "___excess___": "How much over expected"
+      },
+
+      "recommendation": "Task completed successfully despite slow response",
+      "___recommendation___": "Suggested action"
+    },
+
+    {
+      "___WARNING_2___": "Example: Unexpected page redirect",
+      "warning_id": "WARN_002",
+      "task_id": "task_002",
+      "timestamp": "2026-02-13T10:31:26.012Z",
+      "type": "NavigationWarning",
+      "message": "Page redirected during navigation",
+      "severity": "low",
+      "details": {
+        "original_url": "https://genspark.ai",
+        "redirected_to": "https://www.genspark.ai",
+        "redirect_count": 2,
+        "final_url": "https://www.genspark.ai/chat"
+      },
+      "recommendation": "Update URL in config if permanent change"
+    }
+  ],
+
+  "error_categories": {
+    "browser_errors": {
+      "count": 1,
+      "___count___": "Total browser-related errors",
+      "examples": ["BrowserError: Connection lost"]
+    },
+    "timeout_errors": {
+      "count": 1,
+      "___count___": "Total timeout errors",
+      "examples": ["TimeoutError: Waiting for response"]
+    },
+    "network_errors": {
+      "count": 0,
+      "___count___": "Total network-related errors",
+      "examples": []
+    },
+    "validation_errors": {
+      "count": 0,
+      "___count___": "Total validation errors",
+      "examples": []
+    },
+    "adapter_errors": {
+      "count": 0,
+      "___count___": "Total adapter-specific errors",
+      "examples": []
+    },
+    "unknown_errors": {
+      "count": 0,
+      "___count___": "Total unknown/unexpected errors",
+      "examples": []
+    }
+  },
+
+  "task_error_map": {
+    "task_001": {
+      "status": "success",
+      "errors": [],
+      "warnings": []
+    },
+    "task_002": {
+      "status": "success",
+      "errors": [],
+      "warnings": ["WARN_002: Page redirect"]
+    },
+    "task_003": {
+      "status": "success",
+      "errors": [],
+      "warnings": ["WARN_001: Slow response"]
+    },
+    "task_004": {
+      "status": "success",
+      "errors": [],
+      "warnings": []
+    },
+    "task_005_example": {
+      "status": "failed",
+      "errors": ["ERR_001: Timeout"],
+      "warnings": [],
+      "___example___": "Failed task would show here"
+    }
+  },
+
+  "timeline": [
+    {
+      "time": "2026-02-13T10:31:26.012Z",
+      "type": "WARNING",
+      "task_id": "task_002",
+      "message": "Page redirected during navigation"
+    },
+    {
+      "time": "2026-02-13T10:31:45.789Z",
+      "type": "ERROR",
+      "task_id": "task_003",
+      "message": "Connection to browser lost"
+    },
+    {
+      "time": "2026-02-13T10:31:47.890Z",
+      "type": "WARNING",
+      "task_id": "task_003",
+      "message": "Response took longer than expected"
+    },
+    {
+      "time": "2026-02-13T10:32:35.456Z",
+      "type": "ERROR",
+      "task_id": "task_005",
+      "message": "Browser timeout after 120 seconds"
+    }
+  ],
+
+  "debugging_information": {
+    "last_page_url": "https://chat.openai.com",
+    "___last_url___": "Last URL before error occurred",
+    "last_action": "clicking send button",
+    "___last_action___": "Last action performed",
+    "page_title": "ChatGPT",
+    "___page_title___": "HTML page title at time of error",
+    "page_content_preview": "Starting a new conversation...",
+    "___content___": "HTML body text preview (first 100 chars)",
+    "console_errors": [],
+    "___console___": "JavaScript console errors if any",
+    "network_errors": [],
+    "___network___": "HTTP/Network errors if any"
+  },
+
+  "recommendations": [
+    {
+      "priority": "high",
+      "category": "Configuration",
+      "issue": "Timeout errors occurring",
+      "action": "Increase timeout_ms in config.json from 120 to 180 seconds",
+      "expected_benefit": "Reduce timeout failures"
+    },
+    {
+      "priority": "medium",
+      "category": "Performance",
+      "issue": "Slow responses from some adapters",
+      "action": "Consider using faster adapters (ChatGPT vs GenSpark)",
+      "expected_benefit": "Improve overall workflow speed"
+    },
+    {
+      "priority": "low",
+      "category": "Maintenance",
+      "issue": "URL redirects detected",
+      "action": "Update config.json with final URL",
+      "expected_benefit": "More direct navigation"
+    }
+  ],
+
+  "error_patterns": {
+    "most_common_error": "TimeoutError (1 occurrence)",
+    "___pattern___": "Most frequently occurring error",
+    "error_frequency": {
+      "TimeoutError": 1,
+      "BrowserError": 1,
+      "PerformanceWarning": 1,
+      "NavigationWarning": 1
+    },
+    "time_distribution": {
+      "morning_6_12": 0,
+      "afternoon_12_18": 4,
+      "evening_18_24": 0,
+      "night_0_6": 0
+    }
+  },
+
+  "___HOW_TO_USE_THIS_DATA___": {
+    "quick_debug": "Search for errors array to see what failed",
+    "find_slow_tasks": "Look at PerformanceWarning in warnings array",
+    "check_timeline": "Review timeline array for chronological order of events",
+    "get_recommendations": "See recommendations array for suggested fixes",
+    "analyze_patterns": "Use error_patterns to identify trends",
+    "filter_by_severity": "Search by severity field (high, medium, low)"
+  },
+
+  "___IMPORTANT_NOTES___": {
+    "note_1": "⚠️ This file may contain system paths and internal details",
+    "note_2": "Not committed to Git - for local debugging only",
+    "note_3": "Stack traces may help debug but contain sensitive paths",
+    "note_4": "Timestamps are UTC (Z suffix in ISO 8601)",
+    "note_5": "Some errors are recoverable (warnings), others are fatal",
+    "note_6": "Use error_code for programmatic error handling",
+    "note_7": "Check suggestions array for automatic fix recommendations",
+    "note_8": "Old error files should be deleted periodically to save space"
+  }
+}
