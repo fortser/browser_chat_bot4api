@@ -93,3 +93,66 @@ sessions.json
 *.db
 *.sqlite
 *.sqlite3
+
+# Local credentials, certificates, and environment variants
+.env.*
+!.env.example
+!.env.sample
+*.key
+*.pem
+*.p12
+*.pfx
+*.credentials
+*.session.json
+*password*.json
+*token*.json
+*secret*.json
+*credential*.json
+settings.local.json
+settings.private.json
+
+# Local assistant settings and generated reports
+.claude/
+.codex/
+.agents/
+claude_start.bat
+codex-WT.bat
+GO.BAT
+**/.llm_reports_*/
+**/llm_report_*.md
+
+# Browser profiles, authentication stores and exports
+**/browser_profile/
+**/browser_data/
+**/user_data/
+**/profiles/
+**/Cookies
+**/History
+**/Bookmarks
+**/Login Data
+**/Web Data
+cookie_extractor/cookies_*/
+cookie_extractor/cookies_split/
+cookie_extractor/genspark cookies_*/
+cookie_extractor/cookies_export*.json
+
+# User-generated task data and execution output
+chatflow-automator/data/results/
+chatflow-automator/data/tasks/
+chatflow-automator/data/cookies/
+chatflow-automator/data/logs/
+chatflow-automator/data/config*.json
+
+# Archives, local backups and editor copies
+*.rar
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.backup
+*.orig
+*— копия*
+*_copy.py
+*_old.py
+chatflow-automator/card_editor_parser_old_copies/
